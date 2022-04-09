@@ -32,7 +32,7 @@ let mixer = null
  */
 
 gltfLoader.load(
-    '/models/store.glb',
+    '/models/store3d44.glb',
     (store) =>
     {
         store.scene.scale.set(0.1, 0.1, 0.1)
@@ -53,7 +53,7 @@ gltfLoader.load(
     (samsung) =>
     {
         samsung.scene.scale.set(0.5, 0.5, 0.5)
-        samsung.scene.position.set(3.595, 1.34, 0)
+        samsung.scene.position.set(3.7, 1.457,- 0.5)
         samsung.scene.rotateZ(-(Math.PI / 8))
         scene.add(samsung.scene)
 
@@ -64,12 +64,12 @@ gltfLoader.load(
     }
 )
 gltfLoader.load(
-    '/models/stand2.glb',
+    '/models/stando2.glb',
     (samsungStand) =>
     {
-        samsungStand.scene.scale.set(0.5, 0.5, 0.5)
-        samsungStand.scene.position.set(3.75, 1, 0)
-        samsungStand.scene.rotateY(-(Math.PI ))
+        samsungStand.scene.scale.set(1.5, 1.5, 1.5)
+        samsungStand.scene.position.set(3.65, 1, - 0.5)
+        samsungStand.scene.rotateY(-(Math.PI )/2)
         scene.add(samsungStand.scene)
 
         // Animation
@@ -84,7 +84,7 @@ gltfLoader.load(
     (iphone13) =>
     {
         iphone13.scene.scale.set(0.5, 0.5, 0.5)
-        iphone13.scene.position.set(3.65, 1.3, 1)
+        iphone13.scene.position.set(3.75, 1.4, 4)
         iphone13.scene.rotateZ(-(Math.PI / 8))
         scene.add(iphone13.scene)
 
@@ -96,17 +96,81 @@ gltfLoader.load(
 )
 
 gltfLoader.load(
-    '/models/stand2.glb',
+    '/models/stando2.glb',
     (iphoneStand) =>
     {
-        iphoneStand.scene.scale.set(0.5, 0.5, 0.5)
-        iphoneStand.scene.position.set(3.75, 1, 1)
-        iphoneStand.scene.rotateY(-(Math.PI ))
+        iphoneStand.scene.scale.set(1.5, 1.5, 1.5)
+        iphoneStand.scene.position.set(3.65, 1, 4)
+        iphoneStand.scene.rotateY(-(Math.PI )/2)
         scene.add(iphoneStand.scene)
 
         // Animation
         mixer = new THREE.AnimationMixer(iphoneStand.scene)
         const action = mixer.clipAction(iphoneStand.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/13pro3d2.glb',
+    (iphone132) =>
+    {
+        iphone132.scene.scale.set(0.5, 0.5, 0.5)
+        iphone132.scene.position.set(3.75, 1.4, 3.5)
+        iphone132.scene.rotateZ(-(Math.PI / 8))
+        scene.add(iphone132.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphone132.scene)
+        const action = mixer.clipAction(iphone132.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (iphoneStand2) =>
+    {
+        iphoneStand2.scene.scale.set(1.5, 1.5, 1.5)
+        iphoneStand2.scene.position.set(3.65, 1, 3.5)
+        iphoneStand2.scene.rotateY(-(Math.PI )/2)
+        scene.add(iphoneStand2.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphoneStand2.scene)
+        const action = mixer.clipAction(iphoneStand2.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/13pro3d3.glb',
+    (iphone133) =>
+    {
+        iphone133.scene.scale.set(0.5, 0.5, 0.5)
+        iphone133.scene.position.set(3.75, 1.4, 3)
+        iphone133.scene.rotateZ(-(Math.PI / 8))
+        scene.add(iphone133.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphone133.scene)
+        const action = mixer.clipAction(iphone133.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (iphoneStand3) =>
+    {
+        iphoneStand3.scene.scale.set(1.5, 1.5, 1.5)
+        iphoneStand3.scene.position.set(3.65, 1, 3)
+        iphoneStand3.scene.rotateY(-(Math.PI )/2)
+        scene.add(iphoneStand3.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphoneStand3.scene)
+        const action = mixer.clipAction(iphoneStand3.animations[2])
         action.play()
     }
 )
@@ -149,12 +213,12 @@ gltfLoader.load(
 )
 
 gltfLoader.load(
-    '/models/macbookpro.glb',
+    '/models/MacBookProblend.glb',
     (macbook3) =>
     {
         macbook3.scene.scale.set(0.15, 0.15, 0.15)
-        macbook3.scene.position.set(1.35, 1, 1)
-        macbook3.scene.rotateY(-(Math.PI ))
+        macbook3.scene.position.set(1.15, 0.87, 1)
+        macbook3.scene.rotateY(-(Math.PI )/2)
         macbook3.scene.castShadow = true;
         scene.add(macbook3.scene)
 
