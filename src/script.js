@@ -389,17 +389,19 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import bootstrap from 'bootstrap'
+import 'bootstrap'
 import { Camera } from 'three'
-
+import sound1 from './audio/store.mp3'
 
 
 // C:\Users\farou\Documents\Web Projects\3D_Store\static\audio
 
-//Audio
-// var audio = new Audio('/audio/store.mp3')
-// audio.play()
+Audio
+ var audio = new Audio(sound1)
+ audio.play()
 
+ const geometry = new THREE.SphereGeometry(0.5, 10, 10)
+const material = new THREE.MeshNormalMaterial({ wireframe: true })
 /**
  * Base
  */
@@ -441,6 +443,8 @@ let mixer = null
     }
 )
 
+
+
 gltfLoader.load(
     '/models/store3dcomplete.glb',
     (store) =>
@@ -473,6 +477,12 @@ gltfLoader.load(
         action.play()
     }
 )
+
+const geometryphone = new THREE.CubeGeometry(0.1, 0.18, 0.1)
+const spheresamsung = new THREE.Mesh(geometryphone, material)
+scene.add(spheresamsung)
+spheresamsung.position.set(3.65, 1.22,2.2)
+
 gltfLoader.load(
     '/models/stando2.glb',
     (samsungStand) =>
@@ -489,6 +499,8 @@ gltfLoader.load(
     }
 )
 
+
+
 gltfLoader.load(
     '/models/s22ultrawhite.glb',
     (samsung1) =>
@@ -504,6 +516,14 @@ gltfLoader.load(
         action.play()
     }
 )
+
+const spheresamsung1 = new THREE.Mesh(geometryphone, material)
+spheresamsung1.visible = false;
+scene.add(spheresamsung1)
+spheresamsung1.position.set(3.65, 1.22,1.9)
+
+
+
 gltfLoader.load(
     '/models/stando2.glb',
     (samsungStand1) =>
@@ -712,8 +732,7 @@ gltfLoader.load(
 )
 
 //Create a new sphere in three js
-const geometry = new THREE.SphereGeometry(0.5, 10, 10)
-const material = new THREE.MeshNormalMaterial({ wireframe: true })
+
 const sphere = new THREE.Mesh(geometry, material)
 scene.add(sphere)
 sphere.position.set(-0.5, 0.25, 0.5)
@@ -1765,70 +1784,75 @@ const tick = () =>
 tick()
 
 const domEvents = new THREEx.DomEvents(camera, renderer.domElement)
-domEvents.addEventListener(sphere, 'dblclick', (event) => {
+domEvents.addEventListener(sphere, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 0)
 }, false)
 
-domEvents.addEventListener(sphere1, 'dblclick', (event) => {
+domEvents.addEventListener(sphere1, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 2.5)
 }, false)
 
-domEvents.addEventListener(sphere2, 'dblclick', (event) => {
+domEvents.addEventListener(sphere2, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 5.5)
 }, false)
 
-domEvents.addEventListener(sphere3, 'dblclick', (event) => {
+domEvents.addEventListener(sphere3, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 8)
 }, false)
 
-domEvents.addEventListener(sphere4, 'dblclick', (event) => {
+domEvents.addEventListener(sphere4, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 10)
 }, false)
 
-domEvents.addEventListener(sphere5, 'dblclick', (event) => {
+domEvents.addEventListener(sphere5, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 12)
 }, false)
 
-domEvents.addEventListener(sphere6, 'dblclick', (event) => {
+domEvents.addEventListener(sphere6, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 0)
 }, false)
 
-domEvents.addEventListener(sphere7, 'dblclick', (event) => {
+domEvents.addEventListener(sphere7, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 2.5)
 }, false)
 
-domEvents.addEventListener(sphere8, 'dblclick', (event) => {
+domEvents.addEventListener(sphere8, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 5.5)
 }, false)
 
-domEvents.addEventListener(sphere9, 'dblclick', (event) => {
+domEvents.addEventListener(sphere9, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 8)
 }, false)
 
-domEvents.addEventListener(sphere10, 'dblclick', (event) => {
+domEvents.addEventListener(sphere10, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 10)
 }, false)
 
-domEvents.addEventListener(sphere11, 'dblclick', (event) => {
+domEvents.addEventListener(sphere11, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 12)
 }, false)
-domEvents.addEventListener(sphere12, 'dblclick', (event) => {
+domEvents.addEventListener(sphere12, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(1, 1.4, 5.5)
 }, false)
-domEvents.addEventListener(sphere13, 'dblclick', (event) => {
+domEvents.addEventListener(sphere13, 'click', (event) => {
     console.log('click on sphere')
     controls.target.set(1, 1.4,-0.75)
+}, false)
+
+domEvents.addEventListener(macbook, 'click', (event) => {
+    console.log('click on sphere')
+    controls.target.set(-0.5, 2, 0)
 }, false)

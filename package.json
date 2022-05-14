@@ -1,24 +1,30 @@
 {
   "scripts": {
-    "build": "webpack --config ./bundler/webpack.prod.js",
+    "build": "webpack",
+    "build:w": "webpack -w",
     "dev": "webpack serve --config ./bundler/webpack.dev.js"
+    
+    
+
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@popperjs/core": "^2.11.5",
     "babel-loader": "^8.2.2",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^4.6.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^7.0.0",
-    "css-loader": "^5.0.1",
     "dat.gui": "^0.7.7",
     "file-loader": "^6.2.0",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^5.0.0-alpha.7",
+    "i": "^0.3.7",
+    "jquery": "^3.6.0",
     "mini-css-extract-plugin": "^1.3.4",
+    "popper.js": "^1.16.1",
     "portfinder-sync": "0.0.2",
     "raw-loader": "^4.0.2",
-    "style-loader": "^2.0.0",
     "three": "^0.124.0",
     "threex-domevents": "^1.0.0",
     "threex.domevents": "^1.0.1",
@@ -26,5 +32,19 @@
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
+  },
+  "devDependencies": {
+    "auto-prefixer": "^0.4.2",
+    "autoprefixer": "^10.4.7",
+    "css-loader": "^6.7.1",
+    "export-loader": "^1.0.52",
+    "exports-loader": "^3.1.0",
+    "install": "^0.13.0",
+    "node-sass": "^7.0.1",
+    "npm": "^8.9.0",
+    "postcss": "^8.4.13",
+    "postcss-loader": "^6.2.1",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1"
   }
 }
