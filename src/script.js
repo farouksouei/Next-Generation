@@ -393,7 +393,11 @@ import 'bootstrap'
 import { Camera } from 'three'
 import sound1 from './audio/store.mp3'
 import iphoneSound from './audio/iphone.mp3'
-
+import samsungSound from './audio/samsung.mp3'
+import ipodSound from './audio/ipod.mp3'
+import tvSound from './audio/TV.mp3'
+import powerSound from './audio/power.mp3'
+import i7Sound from './audio/I7.mp3'
 
 // C:\Users\farou\Documents\Web Projects\3D_Store\static\audio
 
@@ -401,6 +405,11 @@ Audio
  var audio = new Audio(sound1)
  audio.play()
  var audioIphone = new Audio(iphoneSound)
+ var audioSamsung = new Audio(samsungSound)
+ var audioIpod =  new Audio(ipodSound)
+ var audioTV =  new Audio(tvSound)
+ var audioPower = new Audio(powerSound)
+ var audioI7 = new Audio(i7Sound)
 
  const geometry = new THREE.SphereGeometry(0.5, 10, 10)
 const material = new THREE.MeshNormalMaterial({ wireframe: true })
@@ -1249,19 +1258,12 @@ sphere11.position.set(2.5, 0.2,12)
         action.play()
     }
 )
+
 const geometrytv = new THREE.BoxGeometry(0.35, 1, 5)
 const tv1geo = new THREE.Mesh(geometrytv, material)
+tv1geo.visible = false;
 scene.add(tv1geo)
 tv1geo.position.set(-2, 1.65, 1.55)
-
-// const geometrytv = new THREE.BoxGeometry(0.75, 0.75, 2.65)
-// const tv1geo = new THREE.Mesh(geometrytv, material)
-// scene.add(tv1geo)
-// tv1geo.position.set(-2, 1.15, 0.35)
-
-
-
-
 
 gltfLoader.load(
     '/models/TV-1.glb',
@@ -1298,6 +1300,7 @@ gltfLoader.load(
 
 const geometrypowerbank = new THREE.BoxGeometry(0.45, 0.45, 0.45)
 const powerbank = new THREE.Mesh(geometrypowerbank, material)
+powerbank.visible = false;
 scene.add(powerbank)
 powerbank.position.set(-1.75, 1.15, 6.25)
 
@@ -1336,6 +1339,7 @@ gltfLoader.load(
 
 const I7geometery = new THREE.BoxGeometry(0.25, 0.25, 0.25)
 const I7 = new THREE.Mesh(I7geometery, material)
+I7.visible = false;
 scene.add(I7)
 I7.position.set(-1.75, 1.14   , 7.25)
 
@@ -2561,21 +2565,82 @@ domEvents.addEventListener(sphere13, 'dblclick', (event) => {
 
 domEvents.addEventListener(spheresamsung, 'dblclick', (event) => {
     console.log('click on sphere')
-    audio.play()
+    audioSamsung.play()
 }, false)
 
 domEvents.addEventListener(spheresamsung1, 'dblclick', (event) => {
     console.log('click on sphere')
-    audio.play()
+    audioSamsung.play()
 }, false)
 
 domEvents.addEventListener(spheresamsung2, 'dblclick', (event) => {
     console.log('click on sphere')
-    audio.play()
+    audioSamsung.play()
+}, false)
+
+domEvents.addEventListener(spheresamsung3, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioSamsung.play()
+}, false)
+
+domEvents.addEventListener(spheresamsung4, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioSamsung.play()
+}, false)
+
+domEvents.addEventListener(spheresamsung5, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioSamsung.play()
+}, false)
+
+domEvents.addEventListener(sphereiphone, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioIphone.play()
+}, false)
+
+domEvents.addEventListener(sphereiphone1, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioIphone.play()
+}, false)
+
+domEvents.addEventListener(sphereiphone2, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioIphone.play()
+}, false)
+
+domEvents.addEventListener(sphereiphone5, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioIphone.play()
+}, false)
+
+domEvents.addEventListener(sphereipod, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioIpod.play()
+}, false)
+
+domEvents.addEventListener(sphereipod1, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioIpod.play()
+}, false)
+
+domEvents.addEventListener(sphereipod2, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audioIpod.play()
+}, false)
+
+
+domEvents.addEventListener(powerbank, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioPower.play()
+}, false)
+
+domEvents.addEventListener(I7, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioI7.play()
 }, false)
 
 domEvents.addEventListener(tv1geo, 'dblclick', (event) => {
     console.log('click on tv')
-    audio.play()
+    audioTV.play()
 }, false)
 
