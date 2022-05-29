@@ -401,6 +401,9 @@ import i7Sound from './audio/I7.mp3'
 import viewSonicSound from './audio/viewsonic.mp3'
 import viewSound from './audio/view.mp3'
 import macbookSound from './audio/macbook.mp3'
+import msiSound from './audio/msi.mp3'
+import printerSound from './audio/printer.mp3'
+import samsungPCSound from './audio/samsungPC.mp3'
 
 
 // C:\Users\farou\Documents\Web Projects\3D_Store\static\audio
@@ -417,6 +420,9 @@ Audio
  var audioViewSonic = new Audio(viewSonicSound)
  var audioView = new Audio(viewSound)
  var audioMacbook = new Audio(macbookSound)
+ var audioMsi = new Audio(msiSound)
+ var audioSamsungPC = new Audio(samsungPCSound)
+ var audioPrinter = new Audio(printerSound)
 
  const geometry = new THREE.SphereGeometry(0.5, 10, 10)
 const material = new THREE.MeshNormalMaterial({ wireframe: true })
@@ -872,7 +878,7 @@ gltfLoader.load(
 
 const geometryprinter = new THREE.CubeGeometry(0.5, 0.5, 0.5)
 const Printer = new THREE.Mesh(geometryprinter, material)
-Printer.visible = true;
+Printer.visible = false;
 scene.add(Printer)
 Printer.position.set(3.65, 1.22,7)
 
@@ -1574,6 +1580,7 @@ gltfLoader.load(
 )
 
 const Laptop1 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+Laptop1.visible = false;
 scene.add(Laptop1)
 Laptop1.position.set(1.35, 1.15, 7.1)
 
@@ -1595,6 +1602,7 @@ gltfLoader.load(
 )
 
 const Laptop2 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+Laptop2.visible = false;
 scene.add(Laptop2)
 Laptop2.position.set(1.35, 1, 8.6)
 
@@ -1616,6 +1624,7 @@ gltfLoader.load(
 )
 
 const Laptop3 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+Laptop3.visible = false;
 scene.add(Laptop3)
 Laptop3.position.set(0.75, 0.95, 7.6)
 
@@ -1637,6 +1646,7 @@ gltfLoader.load(
 )
 
 const Laptop4 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+Laptop4.visible = false;
 scene.add(Laptop4)
 Laptop4.position.set(0.75, 0.95, 9.2)
 
@@ -2687,6 +2697,32 @@ domEvents.addEventListener(macbook5, 'dblclick', (event) => {
     console.log('click on tv')
     audioMacbook.play()
 }, false)
+
+domEvents.addEventListener(Laptop1, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioMsi.play()
+}, false)
+
+domEvents.addEventListener(Laptop2, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioMsi.play()
+}, false)
+
+domEvents.addEventListener(Laptop3, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioSamsungPC.play()
+}, false)
+
+domEvents.addEventListener(Printer, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioPrinter.play()
+}, false)
+
+domEvents.addEventListener(Laptop4, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioSamsungPC.play()
+}, false)
+
 
 domEvents.addEventListener(tv1geo, 'dblclick', (event) => {
     console.log('click on tv')
