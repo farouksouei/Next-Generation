@@ -392,6 +392,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import 'bootstrap'
 import { Camera } from 'three'
 import sound1 from './audio/store.mp3'
+import iphoneSound from './audio/iphone.mp3'
 
 
 // C:\Users\farou\Documents\Web Projects\3D_Store\static\audio
@@ -399,6 +400,7 @@ import sound1 from './audio/store.mp3'
 Audio
  var audio = new Audio(sound1)
  audio.play()
+ var audioIphone = new Audio(iphoneSound)
 
  const geometry = new THREE.SphereGeometry(0.5, 10, 10)
 const material = new THREE.MeshNormalMaterial({ wireframe: true })
@@ -446,7 +448,7 @@ let mixer = null
 
 
 gltfLoader.load(
-    '/models/store3dcomplete.glb',
+    '/models/store3dfinal.glb',
     (store) =>
     {
         store.scene.scale.set(0.1, 0.1, 0.1)
@@ -458,6 +460,120 @@ gltfLoader.load(
         // Animation
         mixer = new THREE.AnimationMixer(store.scene)
         const action = mixer.clipAction(store.animations[2])
+        action.play()
+    }
+)
+
+const geometryphone = new THREE.CubeGeometry(0.1, 0.18, 0.1)
+gltfLoader.load(
+    '/models/ipod-touch-5g-006.glb',
+    (ipod) =>
+    {
+        ipod.scene.scale.set(0.025, 0.025, 0.025)
+        ipod.scene.position.set(3.65, 1.22,0.5)
+        ipod.scene.rotateZ(-(Math.PI / 16))
+        ipod.scene.rotateY(-(Math.PI / 2))
+        scene.add(ipod.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(ipod.scene)
+        const action = mixer.clipAction(ipod.animations[2])
+        action.play()
+    }
+)
+
+const sphereipod = new THREE.Mesh(geometryphone, material)
+sphereipod.visible = false;
+scene.add(sphereipod)
+sphereipod.position.set(3.65, 1.22,0.5)
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (ipodStand) =>
+    {
+        ipodStand.scene.scale.set(0.75, 0.75, 0.5)
+        ipodStand.scene.position.set(3.65, 1, 0.5)
+        ipodStand.scene.rotateY(-(Math.PI )/2)
+        scene.add(ipodStand.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(ipodStand.scene)
+        const action = mixer.clipAction(ipodStand.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/ipod-touch-5g-006.glb',
+    (ipod) =>
+    {
+        ipod.scene.scale.set(0.025, 0.025, 0.025)
+        ipod.scene.position.set(3.65, 1.22,0.25)
+        ipod.scene.rotateZ(-(Math.PI / 16))
+        ipod.scene.rotateY(-(Math.PI / 2))
+        scene.add(ipod.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(ipod.scene)
+        const action = mixer.clipAction(ipod.animations[2])
+        action.play()
+    }
+)
+const sphereipod1 = new THREE.Mesh(geometryphone, material)
+sphereipod1.visible = false;
+scene.add(sphereipod1)
+sphereipod1.position.set(3.65, 1.22,0.25)
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (ipodStand) =>
+    {
+        ipodStand.scene.scale.set(0.75, 0.75, 0.5)
+        ipodStand.scene.position.set(3.65, 1, 0.25)
+        ipodStand.scene.rotateY(-(Math.PI )/2)
+        scene.add(ipodStand.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(ipodStand.scene)
+        const action = mixer.clipAction(ipodStand.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/ipod-touch-5g-006.glb',
+    (ipod) =>
+    {
+        ipod.scene.scale.set(0.025, 0.025, 0.025)
+        ipod.scene.position.set(3.65, 1.22,0)
+        ipod.scene.rotateZ(-(Math.PI / 16))
+        ipod.scene.rotateY(-(Math.PI / 2))
+        scene.add(ipod.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(ipod.scene)
+        const action = mixer.clipAction(ipod.animations[2])
+        action.play()
+    }
+)
+
+const sphereipod2 = new THREE.Mesh(geometryphone, material)
+sphereipod2.visible = false;
+scene.add(sphereipod2)
+sphereipod2.position.set(3.65, 1.22,0)
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (ipodStand) =>
+    {
+        ipodStand.scene.scale.set(0.75, 0.75, 0.5)
+        ipodStand.scene.position.set(3.65, 1, 0)
+        ipodStand.scene.rotateY(-(Math.PI )/2)
+        scene.add(ipodStand.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(ipodStand.scene)
+        const action = mixer.clipAction(ipodStand.animations[2])
         action.play()
     }
 )
@@ -478,8 +594,9 @@ gltfLoader.load(
     }
 )
 
-const geometryphone = new THREE.CubeGeometry(0.1, 0.18, 0.1)
+
 const spheresamsung = new THREE.Mesh(geometryphone, material)
+spheresamsung.visible = false;
 scene.add(spheresamsung)
 spheresamsung.position.set(3.65, 1.22,2.2)
 
@@ -555,6 +672,13 @@ gltfLoader.load(
         action.play()
     }
 )
+
+const spheresamsung2 = new THREE.Mesh(geometryphone, material)
+spheresamsung2.visible = false;
+scene.add(spheresamsung2)
+spheresamsung2.position.set(3.65, 1.22,1.6)
+
+
 gltfLoader.load(
     '/models/stando2.glb',
     (samsungStand2) =>
@@ -611,13 +735,18 @@ gltfLoader.load(
         iphone13.scene.position.set(3.69, 1.22, 4)
         iphone13.scene.rotateZ(-(Math.PI / 10))
         scene.add(iphone13.scene)
-
+//
         // Animation
         mixer = new THREE.AnimationMixer(iphone13.scene)
         const action = mixer.clipAction(iphone13.animations[2])
         action.play()
     }
 )
+
+const sphereiphone = new THREE.Mesh(geometryphone, material)
+sphereiphone.visible = false;
+scene.add(sphereiphone)
+sphereiphone.position.set(3.65, 1.22,3.7575)
 
 gltfLoader.load(
     '/models/stando2.glb',
@@ -651,6 +780,11 @@ gltfLoader.load(
     }
 )
 
+const sphereiphone1 = new THREE.Mesh(geometryphone, material)
+sphereiphone1.visible = false;
+scene.add(sphereiphone1)
+sphereiphone1.position.set(3.65, 1.22,3.5)
+
 gltfLoader.load(
     '/models/stando2.glb',
     (iphoneStand2) =>
@@ -683,6 +817,11 @@ gltfLoader.load(
     }
 )
 
+const sphereiphone2 = new THREE.Mesh(geometryphone, material)
+sphereiphone2.visible = false;
+scene.add(sphereiphone2)
+sphereiphone2.position.set(3.65, 1.22,4)
+
 gltfLoader.load(
     '/models/stando2.glb',
     (iphoneStand3) =>
@@ -695,6 +834,44 @@ gltfLoader.load(
         // Animation
         mixer = new THREE.AnimationMixer(iphoneStand3.scene)
         const action = mixer.clipAction(iphoneStand3.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/Printer.glb',
+    (LowPoly_printer_Packed) =>
+    {
+        LowPoly_printer_Packed.scene.scale.set(2, 2, 2)
+        LowPoly_printer_Packed.scene.position.set(3.65, 1, 7)
+        LowPoly_printer_Packed.scene.rotateY(-(Math.PI )/2)
+        scene.add(LowPoly_printer_Packed.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(LowPoly_printer_Packed.scene)
+        const action = mixer.clipAction(LowPoly_printer_Packed.animations[2])
+        action.play()
+    }
+)
+
+const geometryprinter = new THREE.CubeGeometry(0.5, 0.5, 0.5)
+const Printer = new THREE.Mesh(geometryprinter, material)
+Printer.visible = true;
+scene.add(Printer)
+Printer.position.set(3.65, 1.22,7)
+
+
+gltfLoader.load(
+    '/models/PRINTER_sign.glb',
+    (printerSigne) =>
+    {
+        printerSigne.scene.scale.set(0.5, 0.5, 0.5)
+        printerSigne.scene.position.set(3.7, 1.12,  6.22)
+        scene.add(printerSigne.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(printerSigne.scene)
+        const action = mixer.clipAction(printerSigne.animations[2])
         action.play()
     }
 )
@@ -730,6 +907,264 @@ gltfLoader.load(
         action.play()
     }
 )
+//hot lena touskie
+gltfLoader.load(
+    '/models/s22ultra5g.glb',
+    (samsung) =>
+    {
+        samsung.scene.scale.set(0.25, 0.25, 0.25)
+        samsung.scene.position.set(3.65, 1.22,8)
+        samsung.scene.rotateZ(-(Math.PI / 16))
+        scene.add(samsung.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsung.scene)
+        const action = mixer.clipAction(samsung.animations[2])
+        action.play()
+    }
+)
+
+
+const spheresamsung3 = new THREE.Mesh(geometryphone, material)
+spheresamsung3.visible = false;
+scene.add(spheresamsung3)
+spheresamsung3.position.set(3.65, 1.22,8)
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (samsungStand) =>
+    {
+        samsungStand.scene.scale.set(0.75, 0.75, 0.5)
+        samsungStand.scene.position.set(3.65, 1, 8)
+        samsungStand.scene.rotateY(-(Math.PI )/2)
+        scene.add(samsungStand.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsungStand.scene)
+        const action = mixer.clipAction(samsungStand.animations[2])
+        action.play()
+    }
+)
+
+
+
+gltfLoader.load(
+    '/models/s22ultrawhite.glb',
+    (samsung1) =>
+    {
+        samsung1.scene.scale.set(0.25, 0.25, 0.25)
+        samsung1.scene.position.set(3.65, 1.22,8.3)
+        samsung1.scene.rotateZ(-(Math.PI / 16))
+        scene.add(samsung1.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsung1.scene)
+        const action = mixer.clipAction(samsung1.animations[2])
+        action.play()
+    }
+)
+
+const spheresamsung4 = new THREE.Mesh(geometryphone, material)
+spheresamsung4.visible = false;
+scene.add(spheresamsung4)
+spheresamsung4.position.set(3.65, 1.22,8.3)
+
+
+
+
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (samsungStand1) =>
+    {
+        samsungStand1.scene.scale.set(0.75, 0.75, 0.5)
+        samsungStand1.scene.position.set(3.65, 1, 8.3)
+        samsungStand1.scene.rotateY(-(Math.PI )/2)
+        scene.add(samsungStand1.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsungStand1.scene)
+        const action = mixer.clipAction(samsungStand1.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/s22ultragreen.glb',
+    (samsung2) =>
+    {
+        samsung2.scene.scale.set(0.25, 0.25, 0.25)
+        samsung2.scene.position.set(3.65, 1.22,8.6)
+        samsung2.scene.rotateZ(-(Math.PI / 16))
+        scene.add(samsung2.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsung2.scene)
+        const action = mixer.clipAction(samsung2.animations[2])
+        action.play()
+    }
+)
+
+const spheresamsung5 = new THREE.Mesh(geometryphone, material)
+spheresamsung5.visible = false;
+scene.add(spheresamsung5)
+spheresamsung5.position.set(3.65, 1.22,8.6)
+
+
+
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (samsungStand2) =>
+    {
+        samsungStand2.scene.scale.set(0.75, 0.75, 0.5)
+        samsungStand2.scene.position.set(3.65, 1, 8.6)
+        samsungStand2.scene.rotateY(-(Math.PI )/2)
+        scene.add(samsungStand2.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsungStand2.scene)
+        const action = mixer.clipAction(samsungStand2.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/SIGNs22ultra.glb',
+    (samsungSigne) =>
+    {
+        samsungSigne.scene.scale.set(1.5, 1.5, 1.5)
+        samsungSigne.scene.position.set(3.7, 1.125,  8.6)
+        //samsungSigne.scene.rotateY(-(Math.PI ))
+        scene.add(samsungSigne.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsungSigne.scene)
+        const action = mixer.clipAction(samsungSigne.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/SIGNs22ultra_price.glb',
+    (samsungSignePrice) =>
+    {
+        samsungSignePrice.scene.scale.set(1.5, 1.5, 1.5)
+        samsungSignePrice.scene.position.set(3.9, 1.225,  7.7)
+        samsungSignePrice.scene.rotateY(-(Math.PI ))
+        scene.add(samsungSignePrice.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(samsungSignePrice.scene)
+        const action = mixer.clipAction(samsungSignePrice.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/13ProMax.glb',
+    (iphone13) =>
+    {
+        iphone13.scene.scale.set(0.25, 0.25, 0.25)
+        iphone13.scene.position.set(3.69, 1.22, 9.4)
+        iphone13.scene.rotateZ(-(Math.PI / 10))
+        scene.add(iphone13.scene)
+//
+        // Animation
+        mixer = new THREE.AnimationMixer(iphone13.scene)
+        const action = mixer.clipAction(iphone13.animations[2])
+        action.play()
+    }
+)
+
+
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (iphoneStand) =>
+    {
+        iphoneStand.scene.scale.set(0.75, 0.75, 0.75)
+        iphoneStand.scene.position.set(3.65, 1, 9.4)
+        iphoneStand.scene.rotateY(-(Math.PI )/2)
+        scene.add(iphoneStand.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphoneStand.scene)
+        const action = mixer.clipAction(iphoneStand.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/13pro3d2.glb',
+    (iphone132) =>
+    {
+        iphone132.scene.scale.set(0.25, 0.25, 0.25)
+        iphone132.scene.position.set(3.69, 1.22, 9.7)
+        iphone132.scene.rotateZ(-(Math.PI / 10))
+        scene.add(iphone132.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphone132.scene)
+        const action = mixer.clipAction(iphone132.animations[2])
+        action.play()
+    }
+)
+
+const sphereiphone5 = new THREE.Mesh(geometryphone, material)
+sphereiphone5.visible = false;
+scene.add(sphereiphone5)
+sphereiphone5.position.set(3.65, 1.22,9.7)
+
+gltfLoader.load(
+    '/models/stando2.glb',
+    (iphoneStand2) =>
+    {
+        iphoneStand2.scene.scale.set(0.75, 0.75, 0.75)
+        iphoneStand2.scene.position.set(3.65, 1, 9.7)
+        iphoneStand2.scene.rotateY(-(Math.PI )/2)
+        scene.add(iphoneStand2.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphoneStand2.scene)
+        const action = mixer.clipAction(iphoneStand2.animations[2])
+        action.play()
+    }
+)
+
+
+gltfLoader.load(
+    '/models/SIGN13pro.glb',
+    (iphoneSigne) =>
+    {
+        iphoneSigne.scene.scale.set(1.5, 1.5, 1.5)
+        iphoneSigne.scene.position.set(3.7, 1.2,  11.5)
+        //samsungSigne.scene.rotateY(-(Math.PI ))
+        scene.add(iphoneSigne.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphoneSigne.scene)
+        const action = mixer.clipAction(iphoneSigne.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/fixed-price-13-pro.glb',
+    (iphoneSignePrice) =>
+    {
+        iphoneSignePrice.scene.scale.set(0.2, 0.2, 0.2)
+        iphoneSignePrice.scene.position.set(3.85, 1.1, 2.5)
+        iphoneSignePrice.scene.rotateY(-(Math.PI ))
+        scene.add(iphoneSignePrice.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(iphoneSignePrice.scene)
+        const action = mixer.clipAction(iphoneSignePrice.animations[2])
+        action.play()
+    }
+)
+
 
 //Create a new sphere in three js
 
@@ -794,6 +1229,7 @@ sphere11.position.set(2.5, 0.2,12)
 
 
 
+
 /**
  * PCs
  */
@@ -810,6 +1246,35 @@ sphere11.position.set(2.5, 0.2,12)
         // Animation
         mixer = new THREE.AnimationMixer(tv.scene)
         const action = mixer.clipAction(tv.animations[2])
+        action.play()
+    }
+)
+const geometrytv = new THREE.BoxGeometry(0.35, 1, 5)
+const tv1geo = new THREE.Mesh(geometrytv, material)
+scene.add(tv1geo)
+tv1geo.position.set(-2, 1.65, 1.55)
+
+// const geometrytv = new THREE.BoxGeometry(0.75, 0.75, 2.65)
+// const tv1geo = new THREE.Mesh(geometrytv, material)
+// scene.add(tv1geo)
+// tv1geo.position.set(-2, 1.15, 0.35)
+
+
+
+
+
+gltfLoader.load(
+    '/models/TV-1.glb',
+    (tv1) =>
+    {
+        tv1.scene.scale.set(0.55, 0.55, 0.55)
+        tv1.scene.position.set(-2, 1.75, 3.05)
+        tv1.scene.rotateY((Math.PI )/2)
+        scene.add(tv1.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(tv1.scene)
+        const action = mixer.clipAction(tv1.animations[2])
         action.play()
     }
 )
@@ -831,6 +1296,143 @@ gltfLoader.load(
     }
 )
 
+const geometrypowerbank = new THREE.BoxGeometry(0.45, 0.45, 0.45)
+const powerbank = new THREE.Mesh(geometrypowerbank, material)
+scene.add(powerbank)
+powerbank.position.set(-1.75, 1.15, 6.25)
+
+
+gltfLoader.load(
+    '/models/powerbank_sign.glb',
+    (powerbankSign) =>
+    {
+        powerbankSign.scene.scale.set(0.25, 0.25, 0.25)
+        powerbankSign.scene.position.set(-1.75, 1.055, 6.75)
+        powerbankSign.scene.rotateY((Math.PI ))
+        scene.add(powerbankSign.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(powerbankSign.scene)
+        const action = mixer.clipAction(powerbankSign.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/i7.glb',
+    (I7) =>
+    {
+        I7.scene.scale.set(0.25, 0.25, 0.25)
+        I7.scene.position.set(-1.75, 1.14   , 7.25)
+        I7.scene.rotateY((Math.PI )/2)
+        scene.add(I7.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(I7.scene)
+        const action = mixer.clipAction(I7.animations[2])
+        action.play()
+    }
+)
+
+const I7geometery = new THREE.BoxGeometry(0.25, 0.25, 0.25)
+const I7 = new THREE.Mesh(I7geometery, material)
+scene.add(I7)
+I7.position.set(-1.75, 1.14   , 7.25)
+
+gltfLoader.load(
+    '/models/signi7.glb',
+    (I7Sign) =>
+    {
+        I7Sign.scene.scale.set(0.25, 0.25, 0.25)
+        I7Sign.scene.position.set(-1.75, 1.055, 7.75)
+        I7Sign.scene.rotateY((Math.PI ))
+        scene.add(I7Sign.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(I7Sign.scene)
+        const action = mixer.clipAction(I7Sign.animations[2])
+        action.play()
+    }
+)
+
+gltfLoader.load(
+    '/models/ViewSonic_Monitor.glb',
+    (ViewSonic_Monitor) =>
+    {
+        ViewSonic_Monitor.scene.scale.set(0.35, 0.35, 0.35)
+        ViewSonic_Monitor.scene.position.set(-1.75, 1.45, 8.35)
+        ViewSonic_Monitor.scene.rotateY((Math.PI )/2)
+        scene.add(ViewSonic_Monitor.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(ViewSonic_Monitor.scene)
+        const action = mixer.clipAction(ViewSonic_Monitor.animations[2])
+        action.play()
+    }
+)
+
+const ViewSonicgeometery = new THREE.BoxGeometry(0.65, 0.65, 0.65)
+const ViewSonic = new THREE.Mesh(ViewSonicgeometery, material)
+scene.add(ViewSonic)
+ViewSonic.position.set(-2, 1.45, 8.35)
+
+
+
+gltfLoader.load(
+    '/models/PC-Monitor_dist.glb',
+    (PC_Monitor) =>
+    {
+        PC_Monitor.scene.scale.set(0.55, 0.55, 0.55)
+        PC_Monitor.scene.position.set(-1.75, 1.05, 9.55)
+        PC_Monitor.scene.rotateY((Math.PI )/2)
+        scene.add(PC_Monitor.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(PC_Monitor.scene)
+        const action = mixer.clipAction(PC_Monitor.animations[2])
+        action.play()
+    }
+)
+
+const Viewgeometery = new THREE.BoxGeometry(0.65, 0.65, 1.05)
+const View = new THREE.Mesh(Viewgeometery, material)
+scene.add(View)
+View.position.set(-1.95, 1.45, 9.55)
+
+
+gltfLoader.load(
+    '/models/monitor_sign.glb',
+    (monitor_sign) =>
+    {
+        monitor_sign.scene.scale.set(0.35, 0.35, 0.35)
+        monitor_sign.scene.position.set(-1.75, 1.1, 10.5)
+        monitor_sign.scene.rotateY((Math.PI ))
+        scene.add(monitor_sign.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(monitor_sign.scene)
+        const action = mixer.clipAction(monitor_sign.animations[2])
+        action.play()
+    }
+)
+
+
+gltfLoader.load(
+    '/models/signi7.glb',
+    (I7Sign) =>
+    {
+        I7Sign.scene.scale.set(0.25, 0.25, 0.25)
+        I7Sign.scene.position.set(-1.75, 1.055, 7.75)
+        I7Sign.scene.rotateY((Math.PI ))
+        scene.add(I7Sign.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(I7Sign.scene)
+        const action = mixer.clipAction(I7Sign.animations[2])
+        action.play()
+    }
+)
+
 gltfLoader.load(
     '/models/macbookpro.glb',
     (macbook) =>
@@ -847,6 +1449,11 @@ gltfLoader.load(
         action.play()
     }
 )
+
+const MACBOOKGEOMETRY = new THREE.BoxGeometry(0.65, 0.65, 0.65)
+const macbook1 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(macbook1)
+macbook1.position.set(1.35, 1, 0)
 
 gltfLoader.load(
     '/models/MacBookProblend.glb',
@@ -865,6 +1472,11 @@ gltfLoader.load(
     }
 )
 
+const macbook3 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(macbook3)
+macbook3.position.set(1.35, 1, 1.5)
+
+
 gltfLoader.load(
     '/models/MacBookProblend.glb',
     (macbook5) =>
@@ -881,6 +1493,10 @@ gltfLoader.load(
         action.play()
     }
 )
+
+const macbook5 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(macbook5)
+macbook5.position.set(1.35, 1, 3.6)
 
 gltfLoader.load(
     '/models/macbookpro.glb',
@@ -899,6 +1515,10 @@ gltfLoader.load(
     }
 )
 
+const macbook2 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(macbook2)
+macbook2.position.set(0.65, 1, 0.5)
+
 gltfLoader.load(
     '/models/macbookpro.glb',
     (macbook4) =>
@@ -912,8 +1532,95 @@ gltfLoader.load(
         mixer = new THREE.AnimationMixer(macbook4.scene)
         const action = mixer.clipAction(macbook4.animations[2])
         action.play()
+    })
+
+    const macbook4 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(macbook4)
+macbook4.position.set(0.65, 1.15, 2.35)
+
+gltfLoader.load(
+    '/models/laptop1-1.glb',
+    (PC1) =>
+    {
+        PC1.scene.scale.set(0.005, 0.005, 0.005)
+        PC1.scene.position.set(1.35, 1, 7.1)
+        
+        PC1.scene.castShadow = true;
+        scene.add(PC1.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(PC1.scene)
+        const action = mixer.clipAction(PC1.animations[2])
+        action.play()
     }
 )
+
+const Laptop1 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(Laptop1)
+Laptop1.position.set(1.35, 1.15, 7.1)
+
+gltfLoader.load(
+    '/models/laptop1-1.glb',
+    (PC3) =>
+    {
+        PC3.scene.scale.set(0.0025, 0.0025, 0.0025)
+        PC3.scene.position.set(1.4, 1., 8.6)
+        
+        PC3.scene.castShadow = true;
+        scene.add(PC3.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(PC3.scene)
+        const action = mixer.clipAction(PC3.animations[2])
+        action.play()
+    }
+)
+
+const Laptop2 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(Laptop2)
+Laptop2.position.set(1.35, 1, 8.6)
+
+gltfLoader.load(
+    '/models/samsung-pc.glb',
+    (PC2) =>
+    {
+        PC2.scene.scale.set(1.75, 1.75, 1.75)
+        PC2.scene.position.set(0.75, 0.95, 7.6)
+        PC2.scene.castShadow = true;
+        PC2.scene.rotateY((Math.PI )/2)
+        scene.add(PC2.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(PC2.scene)
+        const action = mixer.clipAction(PC2.animations[2])
+        action.play()
+    }
+)
+
+const Laptop3 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(Laptop3)
+Laptop3.position.set(0.75, 0.95, 7.6)
+
+
+gltfLoader.load(
+    '/models/samsung-pc.glb',
+    (PC4) =>
+    {
+        PC4.scene.scale.set(1.55, 1.55, 1.55)
+        PC4.scene.position.set(0.75, 0.95, 9.2)
+        PC4.scene.rotateY((Math.PI )/2)
+        scene.add(PC4.scene)
+
+        // Animation
+        mixer = new THREE.AnimationMixer(PC4.scene)
+        const action = mixer.clipAction(PC4.animations[2])
+        action.play()
+    }
+)
+
+const Laptop4 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+scene.add(Laptop4)
+Laptop4.position.set(0.75, 0.95, 9.2)
 
 gltfLoader.load(
     '/models/SIGNMACBOOK.glb',
@@ -1784,75 +2491,91 @@ const tick = () =>
 tick()
 
 const domEvents = new THREEx.DomEvents(camera, renderer.domElement)
-domEvents.addEventListener(sphere, 'click', (event) => {
+domEvents.addEventListener(sphere, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 0)
 }, false)
 
-domEvents.addEventListener(sphere1, 'click', (event) => {
+domEvents.addEventListener(sphere1, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 2.5)
 }, false)
 
-domEvents.addEventListener(sphere2, 'click', (event) => {
+domEvents.addEventListener(sphere2, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 5.5)
 }, false)
 
-domEvents.addEventListener(sphere3, 'click', (event) => {
+domEvents.addEventListener(sphere3, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 8)
 }, false)
 
-domEvents.addEventListener(sphere4, 'click', (event) => {
+domEvents.addEventListener(sphere4, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 10)
 }, false)
 
-domEvents.addEventListener(sphere5, 'click', (event) => {
+domEvents.addEventListener(sphere5, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(-0.5, 1.4, 12)
 }, false)
 
-domEvents.addEventListener(sphere6, 'click', (event) => {
+domEvents.addEventListener(sphere6, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 0)
 }, false)
 
-domEvents.addEventListener(sphere7, 'click', (event) => {
+domEvents.addEventListener(sphere7, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 2.5)
 }, false)
 
-domEvents.addEventListener(sphere8, 'click', (event) => {
+domEvents.addEventListener(sphere8, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 5.5)
 }, false)
 
-domEvents.addEventListener(sphere9, 'click', (event) => {
+domEvents.addEventListener(sphere9, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 8)
 }, false)
 
-domEvents.addEventListener(sphere10, 'click', (event) => {
+domEvents.addEventListener(sphere10, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 10)
 }, false)
 
-domEvents.addEventListener(sphere11, 'click', (event) => {
+domEvents.addEventListener(sphere11, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(2.5, 1.4, 12)
 }, false)
-domEvents.addEventListener(sphere12, 'click', (event) => {
+domEvents.addEventListener(sphere12, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(1, 1.4, 5.5)
 }, false)
-domEvents.addEventListener(sphere13, 'click', (event) => {
+domEvents.addEventListener(sphere13, 'dblclick', (event) => {
     console.log('click on sphere')
     controls.target.set(1, 1.4,-0.75)
 }, false)
 
-domEvents.addEventListener(macbook, 'click', (event) => {
+domEvents.addEventListener(spheresamsung, 'dblclick', (event) => {
     console.log('click on sphere')
-    controls.target.set(-0.5, 2, 0)
+    audio.play()
 }, false)
+
+domEvents.addEventListener(spheresamsung1, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audio.play()
+}, false)
+
+domEvents.addEventListener(spheresamsung2, 'dblclick', (event) => {
+    console.log('click on sphere')
+    audio.play()
+}, false)
+
+domEvents.addEventListener(tv1geo, 'dblclick', (event) => {
+    console.log('click on tv')
+    audio.play()
+}, false)
+
