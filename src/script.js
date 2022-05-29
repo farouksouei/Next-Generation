@@ -398,6 +398,10 @@ import ipodSound from './audio/ipod.mp3'
 import tvSound from './audio/TV.mp3'
 import powerSound from './audio/power.mp3'
 import i7Sound from './audio/I7.mp3'
+import viewSonicSound from './audio/viewsonic.mp3'
+import viewSound from './audio/view.mp3'
+import macbookSound from './audio/macbook.mp3'
+
 
 // C:\Users\farou\Documents\Web Projects\3D_Store\static\audio
 
@@ -410,6 +414,9 @@ Audio
  var audioTV =  new Audio(tvSound)
  var audioPower = new Audio(powerSound)
  var audioI7 = new Audio(i7Sound)
+ var audioViewSonic = new Audio(viewSonicSound)
+ var audioView = new Audio(viewSound)
+ var audioMacbook = new Audio(macbookSound)
 
  const geometry = new THREE.SphereGeometry(0.5, 10, 10)
 const material = new THREE.MeshNormalMaterial({ wireframe: true })
@@ -1377,6 +1384,7 @@ gltfLoader.load(
 
 const ViewSonicgeometery = new THREE.BoxGeometry(0.65, 0.65, 0.65)
 const ViewSonic = new THREE.Mesh(ViewSonicgeometery, material)
+ViewSonic.visible = false;
 scene.add(ViewSonic)
 ViewSonic.position.set(-2, 1.45, 8.35)
 
@@ -1400,6 +1408,7 @@ gltfLoader.load(
 
 const Viewgeometery = new THREE.BoxGeometry(0.65, 0.65, 1.05)
 const View = new THREE.Mesh(Viewgeometery, material)
+View.visible = false;
 scene.add(View)
 View.position.set(-1.95, 1.45, 9.55)
 
@@ -1456,6 +1465,7 @@ gltfLoader.load(
 
 const MACBOOKGEOMETRY = new THREE.BoxGeometry(0.65, 0.65, 0.65)
 const macbook1 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+macbook1.visible = false;
 scene.add(macbook1)
 macbook1.position.set(1.35, 1, 0)
 
@@ -1477,6 +1487,7 @@ gltfLoader.load(
 )
 
 const macbook3 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+macbook3.visible = false;
 scene.add(macbook3)
 macbook3.position.set(1.35, 1, 1.5)
 
@@ -1499,6 +1510,7 @@ gltfLoader.load(
 )
 
 const macbook5 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+macbook5.visible = false;
 scene.add(macbook5)
 macbook5.position.set(1.35, 1, 3.6)
 
@@ -1520,6 +1532,7 @@ gltfLoader.load(
 )
 
 const macbook2 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+macbook2.visible = false;
 scene.add(macbook2)
 macbook2.position.set(0.65, 1, 0.5)
 
@@ -1539,6 +1552,7 @@ gltfLoader.load(
     })
 
     const macbook4 = new THREE.Mesh(MACBOOKGEOMETRY, material)
+    macbook4.visible = false;
 scene.add(macbook4)
 macbook4.position.set(0.65, 1.15, 2.35)
 
@@ -2637,6 +2651,41 @@ domEvents.addEventListener(powerbank, 'dblclick', (event) => {
 domEvents.addEventListener(I7, 'dblclick', (event) => {
     console.log('click on tv')
     audioI7.play()
+}, false)
+
+domEvents.addEventListener(ViewSonic, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioViewSonic.play()
+}, false)
+
+domEvents.addEventListener(View, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioView.play()
+}, false)
+
+domEvents.addEventListener(macbook1, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioMacbook.play()
+}, false)
+
+domEvents.addEventListener(macbook2, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioMacbook.play()
+}, false)
+
+domEvents.addEventListener(macbook3, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioMacbook.play()
+}, false)
+
+domEvents.addEventListener(macbook4, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioMacbook.play()
+}, false)
+
+domEvents.addEventListener(macbook5, 'dblclick', (event) => {
+    console.log('click on tv')
+    audioMacbook.play()
 }, false)
 
 domEvents.addEventListener(tv1geo, 'dblclick', (event) => {
