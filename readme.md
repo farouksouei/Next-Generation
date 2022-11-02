@@ -1,4 +1,7 @@
-# Three.js Journey
+# Three.js Store App
+A new kind of stores
+one might say it's a next generation of e-stores
+made with three js and bundled with webpack
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
